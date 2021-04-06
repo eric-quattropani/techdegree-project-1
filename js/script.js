@@ -15,7 +15,8 @@ var quotes = [
     quote: 'Serenity Now!',
     source: 'Frank Costanza',
     citation: 'Seinfeld',
-    year: 1997
+    year: 1997,
+    tags: '"TV Show" "Comedy"'
   },
   {
     quote: 'Those who dare to fail miserably can achieve greatly',
@@ -24,13 +25,15 @@ var quotes = [
   {
     quote: 'For a minute there, I lost myself',
     source: 'Radiohead',
-    citation: 'Taken from Karma Police - OK Computer',
+    citation: 'Karma Police - OK Computer Album',
     year: 1997,
+    tags: '"Music" "Alternative Rock"'
   },
   {
     quote: 'When people say to me: would you rather be thought of as a funny man or a great boss? My answer’s always the same, to me, they’re not mutually exclusive',
     source: 'David Brent',
-    citation: 'The Office (UK)'
+    citation: 'The Office (UK)',
+    tags: '"TV Show" "Comedy"'
   },
   {
     quote: 'You miss 100% of the shots you dont take',
@@ -64,18 +67,30 @@ function printQuote() {
     quoteHTML += `<span class="citation"> ${quoteObject.citation} </span>`;
   }
   if (quoteObject.year) {
-    quoteHTML += `<span class="year"> ${quoteObject.year} </span> </p>`;
+    quoteHTML += `<span class="year"> ${quoteObject.year} </span>`;
   }
-
+  if (quoteObject.tags) {
+    quoteHTML += `<span class="tags"> ${quoteObject.tags} </span></p>`;
+  }
+ 
   document.getElementById('quote-box').innerHTML = quoteHTML; 
 };
 
 
 
+// function random_bg_color() {
+//   let x = Math.floor(Math.random() * 256);
+//   let y = Math.floor(Math.random() * 256);
+//   let z = Math.floor(Math.random() * 256);
+//   let bgColor =  `rgb( ${x}, ${y}, ${z} )`;
+//   document.body.innerText = background-color;
+
+//   document.getElementById('quote-box').innerHTML = quoteHTML;  = background-color;
+// }
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote , false);
