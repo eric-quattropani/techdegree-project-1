@@ -23,14 +23,17 @@ var quotes = [
   },
   {
     quote: 'For a minute there, I lost myself',
-    source: 'David Brent'
+    source: 'Radiohead',
+    citation: 'Taken from Karma Police - OK Computer',
+    year: 1997,
   },
   {
-    quote: 'When people say to me: would you rather be thought of as a funny man or a great boss? My answer’s always the same, to me, they’re not mutually exclusive.',
-    source: 'David Brent' 
+    quote: 'When people say to me: would you rather be thought of as a funny man or a great boss? My answer’s always the same, to me, they’re not mutually exclusive',
+    source: 'David Brent',
+    citation: 'The Office (UK)'
   },
   {
-    quote: 'You miss 100% of the shots you dont take.',
+    quote: 'You miss 100% of the shots you dont take',
     source: 'Wayne Gretzky' 
   }
 ];
@@ -39,12 +42,28 @@ var quotes = [
 /***
  * `getRandomQuote` function
 ***/
+// function getRandomQuote(arr) {
+//   var randomNumber = Math.floor(Math.random() * quotes.length);
+//   return arr[randomNumber];
+//   console.log();
+// };
+
+function getRandomQuote() {
+  var randomNumber = Math.floor(Math.random() * quotes.length);
+  for (i=0; i < quotes.length; i++) {
+    let randomQuote = quotes[randomNumber];
+    return randomQuote;
+  }
+
+
+};
 
 
 
 /***
  * `printQuote` function
 ***/
+
 
 
 
