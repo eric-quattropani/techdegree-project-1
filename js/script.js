@@ -36,7 +36,7 @@ var quotes = [
 ];
 
 
-// Created the getRandomQuote function by firstly assigning a random number to the variable randomNumber. From there I was able to use that random number to return a random object from the quotes array and assigning that to the variable randomQuote.
+// Created the getRandomQuote() function by firstly assigning a random number to the variable randomNumber. From there I was able to use that random number to return a random object from the quotes array and assigning that to the variable randomQuote.
 function getRandomQuote (){
   let randomNumber = Math.floor(Math.random() * quotes.length);
   let randomQuote = quotes[randomNumber];
@@ -44,8 +44,8 @@ function getRandomQuote (){
 };
 
 
-// I created the function called printQuote by   (finish this)  using template literals to place both the quote and source parameters 
-// I then used an if statement to allow for the times there are other parameters (citation, year, tags) that will need to be added to the HTML. Since the objects have a varying amount of parameters, I used IF statements. If they had all the exact same parameters I would of just added them to a single line string.
+// I created the function called printQuote() which accessed the getRandomQuote() function and then by using template literals I was able to access both the quote and source elements from the function. The values of the template literals were then added to a variable named quoteHTML which added (=+) the values into paragraph text into the HTML. 
+// I then used an IF statement to allow for the times there are other parameters (e.g citation, year, tags) that will need to be added to the HTML. Since the objects have a varying amount of parameters, I used IF statements. If they had all the exact same parameters I would of just added them to a single line string.
 function printQuote() {
   let quoteObject = getRandomQuote();
   let quoteHTML =`<p class="quote"> ${quoteObject.quote} </p> <p class="source"> ${quoteObject.source} `;
@@ -57,7 +57,7 @@ function printQuote() {
     quoteHTML += `<span class="year"> ${quoteObject.year} </span>`;
   }
   if (quoteObject.tags) {
-    quoteHTML += `<span class="tags"> ${quoteObject.tags} </span></p>`;
+    quoteHTML += `<span class="tags"> ${quoteObject.tags} </span> </p>`;
   }
  
   document.getElementById('quote-box').innerHTML = quoteHTML; 
@@ -65,7 +65,16 @@ function printQuote() {
 
 
 
-// I struggled with the last two extra credit tasks - but gave the random background color a go (see below..)
+document.getElementById('load-quote').addEventListener("click", printQuote , false);
+
+
+// With a bit of playing around (and mainly, googling), I was able to figure out how to auto refresh the quotes using the setInterval function and setting it to a 10000ms interval (10 seconds).
+setInterval(() => {
+  printQuote();
+} , 10000 )
+
+
+// I struggled with the random background color (found this on the internet after many attempts but couldn't make sense of it)..
 
 // function random_bg_color() {
 //   let x = Math.floor(Math.random() * 256);
@@ -76,10 +85,3 @@ function printQuote() {
 
 //   document.getElementById('quote-box').innerHTML = quoteHTML;  = background-color;
 // }
-
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
-
-document.getElementById('load-quote').addEventListener("click", printQuote , false);
