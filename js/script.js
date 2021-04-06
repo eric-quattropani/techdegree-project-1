@@ -42,27 +42,33 @@ var quotes = [
 /***
  * `getRandomQuote` function
 ***/
-// function getRandomQuote(arr) {
-//   var randomNumber = Math.floor(Math.random() * quotes.length);
-//   return arr[randomNumber];
-//   console.log();
-// };
 
-function getRandomQuote() {
-  var randomNumber = Math.floor(Math.random() * quotes.length);
-  for (i=0; i < quotes.length; i++) {
-    let randomQuote = quotes[randomNumber];
-    return randomQuote;
-  }
-
-
+function getRandomQuote (){
+  let randomNumber = Math.floor(Math.random() * quotes.length);
+  let randomQuote = quotes[randomNumber];
+  return randomQuote;
 };
-
 
 
 /***
  * `printQuote` function
 ***/
+let quoteObject;
+let quoteHTML;
+
+function printQuote() {
+  let quoteObject = getRandomQuote();
+  let quoteHTML =`<p class="quote"> ${quoteObject.quote} </p> <p class="source"> ${quoteObject.source} `;
+
+  if (quoteObject.citation) {
+    quoteHTML += `<span class="citation"> ${quoteObject.citation} </span>`;
+  }
+  if (quoteObject.year) {
+    quoteHTML += `<span class="year"> ${quoteObject.year} </span> </p>`;
+  }
+
+  document.getElementById('quote-box').innerHTML = quoteHTML; 
+};
 
 
 
